@@ -1,6 +1,6 @@
-#I-Doc
+<h1>I-Doc<h1>
 
-A new Flutter project.
+An online doctor consultaion and appointment booking app .
 
 ## Getting Started
 
