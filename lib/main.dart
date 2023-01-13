@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:testklk/constants.dart';
 
 import 'package:flutter_svg/svg.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Splash Screen',
       theme: ThemeData(
         primaryColor: swatch2,
