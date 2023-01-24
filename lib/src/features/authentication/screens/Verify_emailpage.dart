@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:testklk/components/hidden_drawer.dart';
+import 'package:testklk/src/components/hidden_drawer.dart';
 
 
 class VerifyEmailPage extends StatefulWidget {

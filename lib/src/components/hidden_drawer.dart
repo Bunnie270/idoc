@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hidden_drawer_menu/hidden_drawer_menu.dart';
 
-import 'package:testklk/screens/HomePage.dart';
-import 'package:testklk/screens/profilepage.dart';
+import 'package:testklk/src/screens/HomePage.dart';
+import 'package:testklk/src/features/authentication/screens/profilepage.dart';
 
 class HiddenDrawer extends StatefulWidget {
   const HiddenDrawer({Key ? key}) : super(key: key);

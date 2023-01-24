@@ -1,19 +1,18 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:testklk/constants.dart';
-
-import 'package:flutter_svg/svg.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:testklk/screens/mainpage.dart';
+import 'package:testklk/repository/authentication_repository/authentication_repository.dart';
+import 'package:testklk/src/features/authentication/screens/welcome/splashscreen/splash_screen.dart';
 
 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-   
+  await Firebase.initializeApp()
+      .then((value) => Get.put(AuthenticationRepository()));
+
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     systemNavigationBarColor: Colors.transparent,
     statusBarColor: Colors.transparent,
@@ -24,55 +23,25 @@ void main() async {
   ));
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.top]);
 
-  runApp(MyApp());
+  runApp(const MyApp());
 
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Splash Screen',
+      title: 'I-Doc',
       theme: ThemeData(
         primaryColor: swatch2,
       ),
-      home: MyHomePage(),
+      home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  void initState() {
-
-    super.initState();
-    Timer(Duration(seconds: 3),
-            ()=>Navigator.pushReplacement(context,
-            MaterialPageRoute(builder:
-                (context) =>
-                MainPage()
-            )
-        )
-    );
-  }
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        color: backgroundColor,
-        height: 200, width: 150,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SvgPicture.asset("assets/icons/idoc.svg",
-
-          ),
-        ),
-    );
-  }
-}
 

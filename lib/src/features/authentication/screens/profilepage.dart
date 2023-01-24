@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:testklk/updateprofilescreen.dart';
-import '../components/profilemenu_widget.dart';
+import '../../../components/profilemenu_widget.dart';
 
 class ProfilePage extends StatelessWidget {
    ProfilePage({Key? key}) : super(key: key);
@@ -73,14 +75,7 @@ class ProfilePage extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: GestureDetector(
-                        onTap: (){
-                          //routing to the update profile screen
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      UpdateProfile()));
-                        },
+                        onTap: () => Get.to(() => const UpdateProfile()),
                         child: Container(
                           padding: const EdgeInsets.all(20),
                           decoration: BoxDecoration(
