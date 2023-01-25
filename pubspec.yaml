@@ -44,6 +44,7 @@ dependencies:
   ionicons: ^0.2.1
   line_awesome_flutter: ^2.0.0
   get: ^4.6.5
+  flutter_otp_text_field: ^1.1.1
 
 
 
@@ -60,6 +61,7 @@ dev_dependencies:
   flutter_svg: ^0.22.0
   google_nav_bar: ^5.0.5
   form_field_validator: ^1.1.0
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
