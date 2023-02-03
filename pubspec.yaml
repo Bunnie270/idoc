@@ -45,6 +45,9 @@ dependencies:
   line_awesome_flutter: ^2.0.0
   get: ^4.6.5
   flutter_otp_text_field: ^1.1.1
+  firebase_core: ^2.4.0
+
+
 
 
 

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:testklk/src/features/authentication/controllers/signup_controller.dart';
-
+import 'package:testklk/src/features/authentication/models/user_model.dart';
 class SignupFormWidget extends StatelessWidget {
   const SignupFormWidget({
     Key? key,
@@ -11,11 +10,11 @@ class SignupFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(SignupController());
-    final _formkey = GlobalKey<FormState>();
+    final formkey = GlobalKey<FormState>();
 
     return Container(
       child: Form(
-          key: _formkey,
+          key: formkey,
           child: Column(
             children: [
               //firstname textfeild
@@ -30,7 +29,7 @@ class SignupFormWidget extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20.0),
                     child: TextFormField(
-                      controller: controller.firstname ,
+                      controller: controller.firstname,
                       decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Enter your first name'),
@@ -130,7 +129,7 @@ class SignupFormWidget extends StatelessWidget {
           const SizedBox(height: 12),*/
 
               //address textfeild
-              Padding(
+              /*Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Container(
                   decoration: BoxDecoration(
@@ -148,7 +147,7 @@ class SignupFormWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
+              ),*/
               const SizedBox(height: 12),
 
               //password
@@ -178,11 +177,23 @@ class SignupFormWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: GestureDetector(
+
                   onTap: () {
-                    if (_formkey.currentState!.validate()) {
-                      SignupController.instance.registerUser(
+                    if (formkey.currentState!.validate()) {
+                      /*SignupController.instance.registerUser(
                           controller.email.text.trim(),
-                          controller.password.text.trim());
+                          controller.password.text.trim());*/
+                      final user = UserModel(
+                          fName: controller.firstname.text.trim(),
+                          lName: controller.lastname.text.trim(),
+                          eMail: controller.email.text.trim(),
+                          phoneNo: controller.phoneno.text.trim(),
+                          password: controller.password.text.trim(),
+
+
+                      );
+                      SignupController.instance.createUser(user);
+
                     }
                   },
                   child: Container(
